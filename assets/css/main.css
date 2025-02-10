@@ -232,9 +232,27 @@ br.clear {
     padding: 20px;
 }
 
+#logo-link {
+    display: inline-block; /* Ensures the anchor tag fits the image */
+    text-decoration: none; /* Removes any text decoration, like underline */
+    border: none; /* Removes any border (including the dotted line) */
+}
+
+#logo {
+    display: block; /* Removes any extra space below the image */
+}
+
 .course {
     width: 80%;
     height: 80%;
+}
+
+.contact-us-form {
+    padding-left: 5em;
+
+    @media (max-width: 820px) {
+        padding-left: 0em;
+    }
 }
 
 /* Sections/Article */
@@ -247,7 +265,7 @@ section > :last-child,
 article > :last-child,
 section:last-child,
 article:last-child {
-    margin-bottom: 3em;
+    margin-bottom: -2em;
 }
 
 .row > section, .row > article {
@@ -1809,16 +1827,22 @@ header.major {
 
 .image.featured {
     display: block;
-    width: 65%;
+    width: 90%;
     display: block;
     margin: auto;
     padding: 3em 0 3em 0;
 
     @media (max-width: 600px) {
-        width: 40%;
-        margin: 0 0 0em 7.5em;
+        width: 70%;
+        /*margin: 0 0 0em 7.5em;*/
         text-align: center;
         font-size: medium;
+    }
+}
+
+.image.featured.home {
+    @media (max-width: 600px) {
+        margin: 0em 0em -7em 4em;
     }
 }
 
@@ -1870,7 +1894,7 @@ ol li {
 /* Actions */
 
 ul.actions {
-    padding-top: 1em;
+    padding-top: 4em;
     list-style: none;
     padding-left: 0;
 }
@@ -2154,7 +2178,7 @@ button:hover,
     background-image: url("images/overlay.png"), url("images/header.svg"), -webkit-linear-gradient(75deg, #0b1c74 15%, #1d73bc 55%);
     background-image: url("images/overlay.png"), url("images/header.svg"), -ms-linear-gradient(75deg, #0b1c74 15%, #1d73bc 55%);
     background-image: url("images/overlay.png"), url("images/header.svg"), linear-gradient(75deg, #0b1c74 15%, #1d73bc 55%);
-    background-color: #1d73bc;
+    background-color: white;
     background-size: 100% 620%;
     background-size: 128px 128px, 100% 620%, auto;
     background-repeat: repeat, no-repeat, no-repeat;
@@ -2758,7 +2782,7 @@ button:hover,
     }
 
     .homepage #header-wrapper {
-        padding: 3em 20px 3em 20px;
+        padding: 3em 20px 6em 20px;
     }
 
     #promo-wrapper {
@@ -2907,7 +2931,7 @@ button:hover,
         -ms-transition: -ms-transform 0.5s ease;
         transition: transform 0.5s ease;
         background-image: url("images/overlay.png"), url("images/navPanel.svg"), -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.25));
-        background-image: url("images/overlay.png"), url("images/navPanel.svg"), -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.25));
+        background-image: url("images/overlay.png"), url("images/navPanel.svg"), -webkit-linear-gradient(top, #1d73bc, #42474c);
         background-image: url("images/overlay.png"), url("images/navPanel.svg"), -ms-linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.25));
         background-image: url("images/overlay.png"), url("images/navPanel.svg"), linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.25));
         display: block;
@@ -3046,7 +3070,7 @@ button:hover,
     }
 
     ul.actions li:first-child {
-        margin-top: 0;
+        margin-top: 2em;
     }
 
     ul.actions.major {
