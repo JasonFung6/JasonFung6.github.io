@@ -1,0 +1,7 @@
+# Do NOT deploy the unencrypted guest source
+js/guests-source.js
+js/build-guests.js
+
+# IDE
+.idea/
+

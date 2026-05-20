@@ -1,0 +1,584 @@
+/* ===== BASE STYLES ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pastel-pink: #f4c2c2;
+    --pastel-green: #b5d8b0;
+    --pastel-lavender: #c9b8e8;
+    --pastel-peach: #fadadd;
+    --pastel-sage: #d4e2d4;
+    --pastel-cream: #fdf6f0;
+    --pastel-blush: #f8e8e8;
+    --gold-accent: #c9a96e;
+    --text-dark: #3d3d3d;
+    --text-medium: #5a5a5a;
+    --text-light: #7a7a7a;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, var(--pastel-cream) 0%, var(--pastel-blush) 50%, var(--pastel-sage) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    background-attachment: fixed;
+}
+
+/* ===== NAVIGATION ===== */
+.site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(253, 246, 240, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+    padding: 16px 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: color 0.3s ease;
+    padding: 4px 0;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--gold-accent);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* ===== SCENE ===== */
+.scene {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: visible;
+    padding: 40px 0;
+}
+
+/* ===== FLORAL ACCENTS ===== */
+.floral-accent {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    opacity: 0.3;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.floral-accent.top-left {
+    top: -50px;
+    left: -50px;
+    background: radial-gradient(circle, var(--pastel-pink) 0%, transparent 70%);
+}
+
+.floral-accent.top-right {
+    top: -50px;
+    right: -50px;
+    background: radial-gradient(circle, var(--pastel-lavender) 0%, transparent 70%);
+}
+
+.floral-accent.bottom-left {
+    bottom: -50px;
+    left: -50px;
+    background: radial-gradient(circle, var(--pastel-green) 0%, transparent 70%);
+}
+
+.floral-accent.bottom-right {
+    bottom: -50px;
+    right: -50px;
+    background: radial-gradient(circle, var(--pastel-peach) 0%, transparent 70%);
+}
+
+/* ===== ENVELOPE ===== */
+.envelope-wrapper {
+    position: relative;
+    width: 440px;
+    height: 300px;
+    cursor: pointer;
+    perspective: 1000px;
+    margin-top: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.envelope-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #e8d5c4 0%, #f0e4d7 100%);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.envelope-front {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(180deg, #f5ebe0 0%, #eddcd2 100%);
+    clip-path: polygon(0 30%, 50% 0%, 100% 30%, 100% 100%, 0 100%);
+    border-radius: 0 0 8px 8px;
+    z-index: 3;
+}
+
+.envelope-front::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--gold-accent);
+    border-radius: 0 0 8px 8px;
+    clip-path: polygon(0 30%, 50% 0%, 100% 30%, 100% 100%, 0 100%);
+    opacity: 0.3;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(180deg, #eddcd2 0%, #e8d5c4 100%);
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top center;
+    transition: transform 0.8s ease-in-out;
+    z-index: 5;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+}
+
+.envelope-flap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--gold-accent);
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    opacity: 0.3;
+}
+
+/* Seal */
+.envelope-seal {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: var(--gold-accent);
+    border-radius: 50%;
+    z-index: 6;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 2px 8px rgba(201, 169, 110, 0.4);
+}
+
+/* ===== CARD ===== */
+.card {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 340px;
+    min-height: 500px;
+    background: white;
+    border-radius: 12px;
+    z-index: 2;
+    opacity: 0;
+    transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.6s ease;
+    transition-delay: 0.5s;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.card-inner {
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+}
+
+.card-ornament {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+    margin: 15px auto;
+}
+
+.card-prelude {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.card-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.card-invite-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.guest-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold-accent);
+    margin-bottom: 15px;
+    min-height: 36px;
+}
+
+.card-occasion {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 25px;
+}
+
+.card-details {
+    margin: 20px 0;
+}
+
+.detail-item {
+    margin-bottom: 18px;
+}
+
+.detail-label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-accent);
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-medium);
+    line-height: 1.5;
+}
+
+.card-footer {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--pastel-peach);
+}
+
+.card-footer p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text-medium);
+    margin-bottom: 8px;
+}
+
+.card-footer .rsvp {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-style: normal;
+    color: var(--text-light);
+}
+
+/* ===== STATES ===== */
+.envelope-wrapper.flap-open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope-wrapper.flap-open .envelope-seal {
+    opacity: 0;
+}
+
+.envelope-wrapper.opened {
+    overflow: visible;
+}
+
+.envelope-wrapper.opened .envelope-flap {
+    transform: rotateX(180deg);
+    box-shadow: none;
+}
+
+.envelope-wrapper.opened .envelope-body {
+    box-shadow: none;
+}
+
+.envelope-wrapper.opened .card {
+    opacity: 1;
+    transform: translate(-50%, -105%);
+    z-index: 10;
+}
+
+/* ===== CLICK HINT ===== */
+.click-hint {
+    margin-top: -35px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.click-hint.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* ===== PHOTO BLOBS ===== */
+.photo-blob {
+    position: absolute;
+    border-radius: 50%;
+    overflow: visible;
+    opacity: 0;
+    pointer-events: none;
+    border: 3px solid rgba(201, 169, 110, 0.3);
+    transition: opacity 1.5s ease;
+    z-index: 20;
+}
+
+.photo-blob::before,
+.photo-blob::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+}
+
+/* Outer ring of petals */
+.photo-blob::before {
+    top: -18px;
+    left: -18px;
+    right: -18px;
+    bottom: -18px;
+    border-radius: 50%;
+    background:
+        /* Top petals */
+        radial-gradient(ellipse 8px 14px at 50% 0%, var(--pastel-pink) 50%, transparent 51%),
+        radial-gradient(ellipse 8px 14px at 35% 3%, var(--pastel-peach) 50%, transparent 51%),
+        radial-gradient(ellipse 8px 14px at 65% 3%, var(--pastel-lavender) 50%, transparent 51%),
+        /* Right petals */
+        radial-gradient(ellipse 14px 8px at 100% 50%, var(--pastel-sage) 50%, transparent 51%),
+        radial-gradient(ellipse 14px 8px at 97% 35%, var(--pastel-pink) 50%, transparent 51%),
+        radial-gradient(ellipse 14px 8px at 97% 65%, var(--pastel-peach) 50%, transparent 51%),
+        /* Bottom petals */
+        radial-gradient(ellipse 8px 14px at 50% 100%, var(--pastel-lavender) 50%, transparent 51%),
+        radial-gradient(ellipse 8px 14px at 35% 97%, var(--pastel-sage) 50%, transparent 51%),
+        radial-gradient(ellipse 8px 14px at 65% 97%, var(--pastel-pink) 50%, transparent 51%),
+        /* Left petals */
+        radial-gradient(ellipse 14px 8px at 0% 50%, var(--pastel-peach) 50%, transparent 51%),
+        radial-gradient(ellipse 14px 8px at 3% 35%, var(--pastel-lavender) 50%, transparent 51%),
+        radial-gradient(ellipse 14px 8px at 3% 65%, var(--pastel-sage) 50%, transparent 51%),
+        /* Diagonal petals */
+        radial-gradient(ellipse 10px 10px at 15% 15%, var(--pastel-green) 50%, transparent 51%),
+        radial-gradient(ellipse 10px 10px at 85% 15%, var(--pastel-pink) 50%, transparent 51%),
+        radial-gradient(ellipse 10px 10px at 85% 85%, var(--pastel-lavender) 50%, transparent 51%),
+        radial-gradient(ellipse 10px 10px at 15% 85%, var(--pastel-peach) 50%, transparent 51%);
+    opacity: 0.8;
+}
+
+/* Inner decorative ring with small buds */
+.photo-blob::after {
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(201, 169, 110, 0.2);
+    background:
+        radial-gradient(circle 3px at 50% 2%, var(--gold-accent) 50%, transparent 51%),
+        radial-gradient(circle 3px at 50% 98%, var(--gold-accent) 50%, transparent 51%),
+        radial-gradient(circle 3px at 2% 50%, var(--gold-accent) 50%, transparent 51%),
+        radial-gradient(circle 3px at 98% 50%, var(--gold-accent) 50%, transparent 51%),
+        radial-gradient(circle 2px at 20% 8%, var(--pastel-green) 50%, transparent 51%),
+        radial-gradient(circle 2px at 80% 8%, var(--pastel-green) 50%, transparent 51%),
+        radial-gradient(circle 2px at 8% 80%, var(--pastel-green) 50%, transparent 51%),
+        radial-gradient(circle 2px at 92% 80%, var(--pastel-green) 50%, transparent 51%);
+    opacity: 0.9;
+}
+
+.envelope-wrapper.opened .photo-blob {
+    opacity: 0.9;
+    transition-delay: 0.8s;
+}
+
+.photo-blob img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+    filter: sepia(0.15) brightness(1.02) contrast(0.95);
+}
+
+.blob-1 {
+    width: 250px;
+    height: 250px;
+    top: -70%;
+    left: -30%;
+}
+
+.blob-2 {
+    width: 180px;
+    height: 180px;
+    top: 65%;
+    right: 50%;
+}
+
+.blob-3 {
+    width: 200px;
+    height: 200px;
+    bottom: 70%;
+    left: 70%;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .envelope-wrapper {
+        width: 320px;
+        height: 220px;
+        margin-top: 510px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .envelope-wrapper.opened .card {
+        transform: translate(-50%, -108%);
+    }
+
+    .card {
+        width: 270px;
+        min-height: auto;
+    }
+
+    .card-inner {
+        padding: 25px 18px;
+    }
+
+    .card-names {
+        font-size: 24px;
+    }
+
+    .guest-names {
+        font-size: 18px;
+    }
+
+    .detail-value {
+        font-size: 14px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-link {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .blob-1 {
+        width: 180px;
+        height: 180px;
+        top: -90%;
+        left: -25%;
+    }
+
+    .blob-2 {
+        width: 150px;
+        height: 150px;
+        top: 50%;
+        right: 50%;
+    }
+
+    .blob-3 {
+        width: 145px;
+        height: 145px;
+        bottom: 75%;
+        left: 70%;
+    }
+}

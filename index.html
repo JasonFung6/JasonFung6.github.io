@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Invited</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link active">Invitation</a></li>
+            <li><a href="pages/details.html" class="nav-link">Details</a></li>
+            <li><a href="pages/travel.html" class="nav-link">Travel</a></li>
+            <li><a href="pages/gifts.html" class="nav-link">Gifts</a></li>
+        </ul>
+    </nav>
+
+    <div class="scene">
+        <div class="floral-accent top-left"></div>
+        <div class="floral-accent top-right"></div>
+        <div class="floral-accent bottom-left"></div>
+        <div class="floral-accent bottom-right"></div>
+
+        <div class="envelope-wrapper" id="envelopeWrapper">
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body"></div>
+                <div class="envelope-front"></div>
+                <div class="envelope-seal"></div>
+            </div>
+
+            <div class="photo-blob blob-1">
+                <img src="assets/placeholder_1.jpg" alt="">
+            </div>
+            <div class="photo-blob blob-2">
+                <img src="assets/placeholder_2.jpg" alt="">
+            </div>
+            <div class="photo-blob blob-3">
+                <img src="assets/placeholder_3.jpg" alt="">
+            </div>
+
+            <div class="card" id="card">
+                <div class="card-inner">
+                    <div class="card-ornament top"></div>
+                    <p class="card-prelude">Together with their families</p>
+                    <h1 class="card-names" id="coupleNames">Jason &amp; Hayley</h1>
+                    <p class="card-invite-text">request the pleasure of the company of</p>
+                    <h2 class="guest-names" id="guestNames"></h2>
+                    <p class="card-occasion">at the celebration of their marriage</p>
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Date</span>
+                            <span class="detail-value">24th May 2027</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Time</span>
+                            <span class="detail-value" id="guestTime"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Venue</span>
+                            <span class="detail-value">Basemead Manor</span>
+                            <span class="detail-value">Staploe, St Neots</span>
+                            <span class="detail-value">PE19 5JB</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p>RSVP</p>
+                        <p class="rsvp">Kindly respond by the first of July</p>
+                    </div>
+                    <div class="card-ornament bottom"></div>
+                </div>
+            </div>
+        </div>
+
+<!--        <p class="click-hint" id="clickHint">Your invitation awaits</p>-->
+    </div>
+
+    <script src="js/guests.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+

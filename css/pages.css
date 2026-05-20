@@ -1,0 +1,120 @@
+/* ===== PAGE CONTENT ===== */
+.page-content {
+    max-width: 680px;
+    margin: 80px auto 60px;
+    padding: 60px 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.page-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.page-ornament {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+    margin: 25px auto;
+}
+
+.page-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-medium);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.page-section {
+    margin: 35px 0;
+}
+
+.page-section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-accent);
+    margin-bottom: 12px;
+}
+
+.page-section-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+.info-card {
+    background: var(--pastel-cream);
+    border-radius: 8px;
+    padding: 25px 30px;
+    margin: 20px 0;
+    border: 1px solid rgba(201, 169, 110, 0.15);
+}
+
+.info-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.info-card-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text-medium);
+    line-height: 1.8;
+}
+
+.coming-soon {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-top: 30px;
+    padding: 15px 25px;
+    border: 1px dashed rgba(201, 169, 110, 0.4);
+    border-radius: 6px;
+    display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .page-content {
+        margin: 30px 16px 40px;
+        padding: 40px 24px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .page-text {
+        font-size: 16px;
+    }
+}
+
